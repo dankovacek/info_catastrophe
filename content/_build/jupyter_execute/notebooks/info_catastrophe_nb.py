@@ -47,7 +47,6 @@ def bits_estimation(n, f=0.01, N_b=7.3E21):
         return np.log10(bits)
     except OverflowError as e:
         return np.nan
-    
 
 
 # In[3]:
@@ -64,9 +63,9 @@ fig, ax = plt.subplots(1, 1, figsize=(8, 6))
 # evaluate a range of digital content growth rates
 for f in growth_rates:
     bits = [bits_estimation(y, f) for y in years]
-    
-    ax.plot(years, bits, label=f)
-    
+    ax.plot(years, bits, label=f'{100*f:.0f}%')
+
+ax.set_title('Model of Digital Content Production Growth')
 ax.set_xscale('log',base=10) 
 # ax.set_yscale('log',base=10) 
 ax.set_ylabel('Annual Info. Production [log10(bits)]')
@@ -85,7 +84,7 @@ plt.show()
 # In[5]:
 
 
-def energy_requirement(n, f=0.01, N_b=7.3E21, T=300):
+def power_requirement(n, f=0.01, N_b=7.3E21, T=300):
     """
     The total energy necessary to create all the digital information in a given n-th year, 
     assuming 𝑓% year-on-year growth.
@@ -107,38 +106,13 @@ def energy_requirement(n, f=0.01, N_b=7.3E21, T=300):
         
 
 
-# In[6]:
-
-
-# evaluate a range of energy growth rates
-fig, ax = plt.subplots(1, 1, figsize=(8, 6))
-
-# plot the total current power use on earth
-p_earth = np.log10(18.5E12) 
-ax.plot(years, [p_earth for y in years], label='Earth', linestyle='dashed')
-
-# plot the information mass for the range of growth rates
-for f in growth_rates:
-    bits = [energy_requirement(y, f) for y in years]
-    
-    ax.plot(years, bits, label=f)
-    
-# ax.set_yscale('log',base=10) 
-ax.set_xscale('log',base=10) 
-ax.set_ylabel('log10(Power [W])')
-ax.set_xlabel('Years from Present [log10 scale]')
-ax.set_ylim(-10, 35)
-ax.legend()
-plt.show()  
-
-
 # ## The Information Mass Model
 # 
 # >"The total information mass accumulated on the planet after $n$ years of $f\%$ growth."
 # 
 # $$M_{info}(n) = N_b \cdot \frac{k_B T \cdot ln(2)}{f\cdot c^2} \cdot \left((f + 1)^{n+1} -1 \right)$$
 
-# In[7]:
+# In[6]:
 
 
 def mass_energy_equivalent(n, f=0.01, N_b=7.3E21, T=300):
@@ -164,30 +138,64 @@ def mass_energy_equivalent(n, f=0.01, N_b=7.3E21, T=300):
         return np.nan   
 
 
-# In[8]:
+# In[7]:
 
 
 # evaluate a range of mass-energy equivalent growth rates
-fig, ax = plt.subplots(1, 1, figsize=(8, 6))
+fig, ax = plt.subplots(1, 2, figsize=(16, 6))
+
+# plot the total current power use on earth
+p_earth = np.log10(18.5E12) 
+ax[0].plot(years, [p_earth for y in years], label='Earth Power', linestyle='dashed')
 
 # plot the earth's mass [log10(kg)]
 m_earth = np.log10(6E24) 
-ax.plot(years, [m_earth for y in years], label='Earth', linestyle='dashed')
+ax[1].plot(years, [m_earth for y in years], label='Earth Mass', linestyle='dashed')
 
-# plot the information mass for the range of growth rates
+# plot the power requirement for the range of growth rates
+# and the information mass for the range of growth rates
 for f in growth_rates:
     bits = [mass_energy_equivalent(y, f) for y in years]
+    power = [power_requirement(y, f) for y in years]
     
-    ax.plot(years, bits, label=f)
-    
-# ax.set_yscale('log',base=10) 
-ax.set_xscale('log',base=10) 
-ax.set_ylabel('log10(mass [kg])')
-ax.set_xlabel('Years from Present [log10 scale]')
-ax.set_ylim(-20, 35)
-ax.legend()
+    ax[0].plot(years, bits, label=f'{100*f:.0f}%')
+    ax[1].plot(years, bits, label=f'{100*f:.0f}%')
+
+ax[0].set_title('Power Requirement of Digital Bit Production')
+ax[0].set_xscale('log',base=10) 
+ax[0].set_ylabel('log10(Power [W])')
+ax[0].set_xlabel('Years from Present [log10 scale]')
+ax[0].set_ylim(-20, 35)
+ax[0].legend()
+
+ax[1].set_title('Information Mass of Digital Bit Production')
+ax[1].set_xscale('log',base=10) 
+ax[1].set_ylabel('log10(mass [kg])')
+ax[1].set_xlabel('Years from Present [log10 scale]')
+ax[1].set_ylim(-20, 35)
+ax[1].legend()
 plt.show()  
 
+
+# ## Questions
+# 
+# 1. What exactly is information mass? 
+# 2. What is the more critical limit to growth, power or "information mass"?
+#     * when does adding $f\%$ of electrical capacity each year **in absolute terms** become too large?  Is it possible adding the capacity would be a limiting factor before the total exploitable energy could be a factor?
+# 3. What problems would computers generating earth-scale information mass be working on?  
+#     * something as simple as chess is still hard. [Shannon Number](https://en.wikipedia.org/wiki/Shannon_number): conservative estimate of the game-tree complexity is $10^{120}$
+# 4. What other limits might first be imposed on computation?
+#     * input data?
+#     * sensing resolution and transmission?
+#     * computation time?
+#     
+#      
+
+# ## References
+# 
+# 1. Vopson, Melvin M. "The Information Catastrophe." *AIP Advances*, vol. 10, no. 8, 2020, pp. 85014-085014-4.
+# 
+# 2. Ikonen, Joni, Juha Salmilehto, and Mikko Möttönen. "Energy-Efficient Quantum Computing." *Npj Quantum Information*, vol. 3, no. 1, 2017;2016;, pp. 1-7.
 
 # In[ ]:
 
