@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # The Information Catastrophe 
+# # The Information Catastrophe: 13 Jan 2021
 # 
 # ## Synopsis (tl;dr)
 # 
