@@ -13,6 +13,3 @@ After updating any content, rebuilt the repo:
 Then, update the github pages site. Use the gh-pages branch update tool:
 
 `ghp-import -n -p -f _build/html`
-
-
-
