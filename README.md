@@ -6,5 +6,13 @@ Launch the main Info Catastrophe notebok using Binder:
 
 Info for [building books and hosting on Github Pages](https://jupyterbook.org/publish/gh-pages.html)
 
+After updating any content, rebuilt the repo:
+
+`jupyter-book build content/`
+
+Then, update the github pages site. Use the gh-pages branch update tool:
+
+`ghp-import -n -p -f _build/html`
+
 
 
