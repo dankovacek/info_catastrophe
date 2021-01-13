@@ -220,6 +220,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-the-area-requirement-grow-under-current-and-theoretical-limit-memory-density">
+   How does the Area Requirement Grow under current and theoretical limit memory density?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -242,14 +247,24 @@
 <ol class="simple">
 <li><p>The rate of advancement in computing over the last 70 years is staggering, and begs the question of <strong>limits</strong>.</p></li>
 <li><p>The present rate of “digital content production” (<strong>DCP</strong>) is an estimated <span class="math notranslate nohighlight">\(2 \times 10^{19}\)</span> <strong>bits per day</strong>.</p></li>
-<li><p>There is a <strong>physical dimension</strong> to the size of a computational bit, and a theoretical lower limit.</p></li>
-<li><p>There is an <strong>energy requirement</strong> to create one bit of information, and a theoretical lower limit.</p></li>
-<li><p>There is a <strong>mass-energy equivalence</strong> principle (Vopson 2019).</p></li>
+<li><p>There are <strong>physical dimensions</strong> to the size of a computational bit:</p>
+<ul class="simple">
+<li><p>currently the area density is <span class="math notranslate nohighlight">\(\sim 25 \frac{nm^2}{bit}\)</span></p></li>
+<li><p>approximate theoretical lower bound is <span class="math notranslate nohighlight">\(\sim 1 \times 10^{-10} \frac{m}{bit}\)</span> (scale of an atom)</p></li>
+</ul>
+</li>
+<li><p>There is an <strong>energy requirement</strong> to create one bit of information, and a theoretical lower limit:</p>
+<ul class="simple">
+<li><p>currently ?</p></li>
+<li><p>theoretical lower limit to create/erase a bit of information is <span class="math notranslate nohighlight">\(k_BT \cdot ln(2)\)</span> Joules</p></li>
+</ul>
+</li>
+<li><p>There is a <strong>mass-energy equivalence</strong> principle (Vopson 2019).  (presented last meeting)</p></li>
 <li><p>The estimated current <strong>growth rate</strong> of DCP is “double digit”, accounting for data being erased.</p></li>
 <li><p>Assuming theoretical limits of computational efficiency, <strong>how long until</strong>:</p>
 <ul class="simple">
-<li><p>the energy requirements of DCP exceeds the present power requirement of the earth?</p></li>
-<li><p>the mass of DCP exceeds the mass of the earth?</p></li>
+<li><p>the energy requirements of DCP exceeds the present power capacity/demand of the earth?</p></li>
+<li><p>the <em>information mass</em> of DCP exceeds the mass of the earth?</p></li>
 </ul>
 </li>
 </ol>
@@ -308,7 +323,6 @@
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Model of Digital Content Production Growth&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
-<span class="c1"># ax.set_yscale(&#39;log&#39;,base=10) </span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Annual Info. Production [log10(bits)]&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Years from Present (log10 scale)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
@@ -441,25 +455,118 @@
 <div class="section" id="questions">
 <h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>What exactly is information mass?</p></li>
-<li><p>What is the more critical limit to growth, power or “information mass”?</p>
+<li><p>How does information mass relate to hardware mass?</p>
+<ul class="simple">
+<li><p>if information mass is a small fraction of the mass of a high density storage device, would storage devices reach earth-mass long before information does?</p></li>
+</ul>
+</li>
+<li><p>How do we think about the critical path to growth?</p>
 <ul class="simple">
 <li><p>when does adding <span class="math notranslate nohighlight">\(f\%\)</span> of electrical capacity each year <strong>in absolute terms</strong> become too large?  Is it possible adding the capacity would be a limiting factor before the total exploitable energy could be a factor?</p></li>
+<li><p>same question but for area – what year would we have to bulldoze an entire continent just to yield the annual marginal DCP?</p></li>
 </ul>
 </li>
 <li><p>What problems would computers generating earth-scale information mass be working on?</p>
 <ul class="simple">
+<li><p>lots of problems still not solvable with hypothetical computational power</p></li>
 <li><p>something as simple as chess is still hard. <a class="reference external" href="https://en.wikipedia.org/wiki/Shannon_number">Shannon Number</a>: conservative estimate of the game-tree complexity is <span class="math notranslate nohighlight">\(10^{120}\)</span></p></li>
 </ul>
 </li>
-<li><p>What other limits might first be imposed on computation?</p>
+<li><p>What other limits related to computation might come first?</p>
 <ul class="simple">
-<li><p>input data?</p></li>
-<li><p>sensing resolution and transmission?</p></li>
+<li><p>input data? i.e. many problems are already data sparse</p></li>
+<li><p>sensing resolution</p></li>
+<li><p>data transmission?</p></li>
 <li><p>computation time?</p></li>
 </ul>
 </li>
 </ol>
+</div>
+<div class="section" id="how-does-the-area-requirement-grow-under-current-and-theoretical-limit-memory-density">
+<h2>How does the Area Requirement Grow under current and theoretical limit memory density?<a class="headerlink" href="#how-does-the-area-requirement-grow-under-current-and-theoretical-limit-memory-density" title="Permalink to this headline">¶</a></h2>
+<p>How can the height dimension be estimated?  <span class="math notranslate nohighlight">\(25 nm^2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">viridis</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">growth_rates</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">viridis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">growth_rates</span><span class="p">)))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area_estimation</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">N_b</span><span class="o">=</span><span class="mf">7.3E21</span><span class="p">,</span> <span class="n">unit_area</span><span class="o">=</span><span class="mf">25E-9</span><span class="p">,</span> <span class="n">height_approx</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Approximate space required to store bits of information accumulated on the planet after n years of f% growth.</span>
+<span class="sd">    </span>
+<span class="sd">    n   = number of years elapsed </span>
+<span class="sd">    f   = rate of growth of digital bit production (%, 0 --&gt; 1)</span>
+<span class="sd">    N_b = estimated current annual rate of digital bit production (7.3 x 10^21)</span>
+<span class="sd">    unit_area = approximate memory (linear) density (m/bit)</span>
+<span class="sd">    height_approx = how high is the memory structure, assuming linear density equals unit_area</span>
+<span class="sd">    </span>
+<span class="sd">    Returns: area taken up by all bits, in km^2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="p">(</span><span class="n">N_b</span><span class="o">/</span><span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">f</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># approximate the area of a 100m tall memory device</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">bits</span> <span class="o">*</span> <span class="n">unit_area</span> <span class="o">*</span> <span class="n">unit_area</span> <span class="o">/</span> <span class="p">(</span><span class="n">height_approx</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">OverflowError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_ocean</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="mf">362E6</span>  <span class="c1"># [km^2] 70% of the ocean floor is the abyssal plains, ocean is 70% of surface of earth (362 million km^2),</span>
+<span class="n">A_CA</span> <span class="o">=</span> <span class="mf">10E6</span>  <span class="c1"># area of Canada, km^2</span>
+<span class="n">A_nd</span> <span class="o">=</span> <span class="mf">41.5E3</span> <span class="c1"># area of the Netherlands, km^2</span>
+
+<span class="c1"># memory density inputs</span>
+<span class="n">A_bit</span> <span class="o">=</span> <span class="mf">25E-9</span> <span class="o">/</span> <span class="mf">1E6</span>    <span class="c1"># 25  nm^2 to km^2 size of 1 bit at current storage density</span>
+<span class="n">A_atom</span> <span class="o">=</span> <span class="mf">1E-10</span> <span class="o">/</span> <span class="mf">1E6</span>   <span class="c1"># 0.1 nm^2 to km^2 (some atoms not spherical)</span>
+
+<span class="c1"># plot area growth</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="c1"># evaluate a range of digital content growth rates</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">growth_rates</span><span class="p">:</span>
+    
+    <span class="c1"># assume a 100m high memory structure monolith</span>
+    <span class="n">h_memory</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">current_area</span> <span class="o">=</span> <span class="p">[</span><span class="n">area_estimation</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">unit_area</span><span class="o">=</span><span class="n">A_bit</span><span class="p">,</span> <span class="n">height_approx</span><span class="o">=</span><span class="n">h_memory</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+    <span class="n">limit_area</span> <span class="o">=</span> <span class="p">[</span><span class="n">area_estimation</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">unit_area</span><span class="o">=</span><span class="n">A_atom</span><span class="p">,</span> <span class="n">height_approx</span><span class="o">=</span><span class="n">h_memory</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">current_area</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">f</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">% current&#39;</span><span class="p">,</span> 
+            <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+<span class="c1">#     ax.plot(years, limit_area, label=f&#39;{100*f:.0f}% limit&#39;, </span>
+<span class="c1">#             color=cmap[i], linestyle=&#39;dashed&#39;)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># plot the area of the abyssal plains of the ocean floor</span>
+<span class="c1"># ax.plot(years, [np.log10(A_nd) for y in years], label=&#39;Nederland&#39;, linestyle=&#39;dotted&#39;)</span>
+<span class="c1"># ax.plot(years, [np.log10(A_CA) for y in years], label=&#39;Canada&#39;, linestyle=&#39;dotted&#39;)</span>
+<span class="c1"># ax.plot(years, [np.log10(A_ocean) for y in years], label=&#39;Ocean floor&#39;, linestyle=&#39;dotted&#39;)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Model of Area Required for Digital Content Production Growth&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;log10(Area [km^2])&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Years from Present (log10 scale)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/info_catastrophe_nb_15_0.png" src="../_images/info_catastrophe_nb_15_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
